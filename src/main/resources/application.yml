@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/translation_db
+    username: user
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+  api-docs:
+    path: /v3/api-docs
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always
+
+#security
+jwt:
+  secret: thisisjwtsecret123456
+  expiration: 3600 # in seconds (1 hour)
+
+
